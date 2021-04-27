@@ -1,8 +1,7 @@
 # zeek-conn-aggregator-kafka-streams
 
-* ###### input - a stream of records like this:
-
-
+*_input_* - a stream of records like this:
+ 
     {
         "ts":1619562183740,
         "uid":"Ct6k6d2TnyF7Zp0Gs",
@@ -22,8 +21,7 @@
     }
 
 
-* output - counts of the number of connections, between pairs of hosts, in 5-minute windows:
-
+*_output_* - counts of the number of connections, between pairs of hosts, in 5-minute windows:
 
     {"id_orig_h":"10.0.1.33","id_resp_h":"10.0.1.1","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":6}
     {"id_orig_h":"10.0.1.16","id_resp_h":"10.0.1.32","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":1}
