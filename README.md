@@ -1,6 +1,6 @@
 # zeek-conn-aggregator-kafka-streams
 
-*_input_* - a stream of records like this:
+*_input_* - a stream of records like this from the `conn` topic:
  
     {
         "ts":1619562183740,
@@ -21,11 +21,20 @@
     }
 
 
-*_output_* - counts of the number of connections, between pairs of hosts, in 5-minute windows:
+*_output_* - aggregates of bytes, packets, connection counts, etc... between pairs of hosts, in 5-minute windows, produced to the `conn-5-minute-aggregation` topic:
 
-    {"id_orig_h":"10.0.1.33","id_resp_h":"10.0.1.1","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":6}
-    {"id_orig_h":"10.0.1.16","id_resp_h":"10.0.1.32","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":1}
-    {"id_orig_h":"10.0.1.40","id_resp_h":"10.0.1.41","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":25}
-    {"id_orig_h":"10.0.1.40","id_resp_h":"10.0.1.42","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":27}
-    {"id_orig_h":"10.0.1.29","id_resp_h":"255.255.255.255","windowStart":1619562300000,"windowEnd":1619562600000,"connection_count":1}
+    {
+        "orig_bytes":141,
+        "resp_bytes":311,
+        "orig_pkts":3,
+        "orig_ip_bytes":225,
+        "resp_pkts":3,
+        "resp_ip_bytes":395,
+        "missed_bytes":0,
+        "connection_count":3,
+        "id_orig_h":"10.0.1.36",
+        "id_resp_h":"10.0.1.1",
+        "windowStart":1620072900000,
+        "windowEnd":1620073200000
+    }
 

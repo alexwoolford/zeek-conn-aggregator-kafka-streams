@@ -8,7 +8,7 @@ public class ConnTimestampExtractor implements TimestampExtractor {
     @Override
     public long extract(ConsumerRecord<Object, Object> record, long partitionTime) {
         ConnRecord connRecord = (ConnRecord) record.value();
-        return connRecord.getTs().getTime();
+        return connRecord.ts.getTime();
     }
 
 }
